@@ -1,0 +1,19 @@
+name: Setup SOPS
+description: Setup SOPS and age for decrypting secrets by downloading and caching specific versions (Linux amd64/arm64 only)
+
+inputs:
+  sops-version:
+    description: The version of SOPS to use
+    required: false
+    default: 3.11.0
+  age-version:
+    description: The version of age to use
+    required: false
+    default: 1.1.1
+  age-key:
+    description: The age private key to add to the environment
+    required: false
+
+runs:
+  using: node24
+  main: dist/index.js
