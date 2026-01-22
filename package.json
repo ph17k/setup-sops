@@ -12,13 +12,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@actions/core": "^1.11.1",
-    "@actions/tool-cache": "^2.0.2"
+    "@actions/core": "^2.0.2",
+    "@actions/tool-cache": "^3.0.0"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^28.0.8",
+    "@rollup/plugin-commonjs": "^29.0.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "rimraf": "^6.1.2",
-    "rollup": "^4.52.5"
+    "rollup": "^4.56.0"
   }
 }

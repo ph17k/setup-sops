@@ -15,12 +15,7 @@ updates:
     schedule:
       interval: weekly
     groups:
-      npm-development:
-        dependency-type: development
+      npm-minor:
         update-types:
           - minor
-          - patch
-      npm-production:
-        dependency-type: production
-        update-types:
           - patch
