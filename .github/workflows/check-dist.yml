@@ -7,7 +7,7 @@
 # If this workflow is run from a feature branch, it will act as an additional CI
 # check and fail if the checked-in `dist/` directory does not match what is
 # expected from the build.
-name: Check Transpiled JavaScript
+name: check-dist
 
 on:
   pull_request:
@@ -22,7 +22,6 @@ permissions:
 
 jobs:
   check-dist:
-    name: Check dist/
     runs-on: ubuntu-latest
 
     steps:
@@ -30,29 +29,18 @@ jobs:
         id: checkout
         uses: actions/checkout@v6
 
-      - name: Setup Node.js
-        id: setup-node
-        uses: actions/setup-node@v6
-        with:
-          node-version-file: .node-version
-          cache: npm
-
-      - name: Remove dist/ Directory
-        id: remove-dist
-        run: npx rimraf ./dist
-
-      - name: Install Dependencies
-        id: install
+      - name: Install deps
         run: npm ci
 
-      - name: Build dist/ Directory
-        id: build
-        run: npm run bundle
+      - name: Remove dist directory
+        run: npx rimraf ./dist
+
+      - name: Build dist
+        run: npm run build
 
       # This will fail the workflow if the `dist/` directory is different than
       # expected.
-      - name: Compare Directories
-        id: diff
+      - name: Compare directories
         run: |
           if [ ! -d dist/ ]; then
             echo "Expected dist/ directory does not exist.  See status below:"
