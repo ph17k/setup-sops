@@ -16,7 +16,7 @@
     "@actions/tool-cache": "^2.0.2"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^28.0.8",
+    "@rollup/plugin-commonjs": "^29.0.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "rimraf": "^6.1.2",
     "rollup": "^4.52.5"
