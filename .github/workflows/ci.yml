@@ -1,0 +1,38 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Setup SOPS
+        uses: ./
+        with:
+          age-key: my-age-private-key
+
+      - name: Verify versions
+        run: |
+          sops --version
+          age --version
+
+      - name: Verify age key
+        run: |
+          key=$(cat $HOME/.config/sops/age/keys.txt)
+          if [[ "$key" != *"my-age-private-key"* ]]; then
+            echo "AGE key not found in environment"
+            exit 1
+          fi
