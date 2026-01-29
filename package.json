@@ -13,12 +13,12 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^2.0.2",
-    "@actions/tool-cache": "^3.0.0"
+    "@actions/tool-cache": "^3.0.1"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^29.0.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "rimraf": "^6.1.2",
-    "rollup": "^4.56.0"
+    "rollup": "^4.57.0"
   }
 }
